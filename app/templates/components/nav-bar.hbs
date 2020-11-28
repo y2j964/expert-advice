@@ -1,23 +1,27 @@
-<BsNavbar @type="dark" @backgroundColor="dark" @class="fixed-top shadow flex-md-nowrap" @collapsed={{this.collapsed}} @onCollapse={{fn (mut this.collapsed) true}} @onExpand={{fn (mut this.collapsed) false}} as |navbar|>
+<BsNavbar @type="" @backgroundColor="light" @class="fixed-top shadow flex-md-nowrap" @collapsed={{this.collapsed}}
+  @onCollapse={{fn (mut this.collapsed) true}} @onExpand={{fn (mut this.collapsed) false}} as |navbar|>
   <div class="navbar-header">
     {{navbar.toggle}}
-    <LinkTo @route="index" class="navbar-brand">Ember Test Assignment</LinkTo>
+    <LinkTo @route="index" class="navbar-brand">Expert Advice</LinkTo>
   </div>
   <navbar.content>
     <navbar.nav @class="ml-auto" as |nav|>
       {{#if this.session.user.email}}
-        <nav.dropdown as |dd|>
-          <dd.toggle>{{this.session.user.email}} <span class="caret"></span></dd.toggle>
-          <dd.menu as |ddm|>
-            <ddm.item>{{#ddm.link-to "index"}}Dashboard{{/ddm.link-to}}</ddm.item>
-            <div class="dropdown-divider"></div>
-            <ddm.item><a href="#" class="dropdown-item" {{on "click" this.logout}}>Sign out</a></ddm.item>
-          </dd.menu>
-        </nav.dropdown>
+      <nav.dropdown as |dd|>
+        <dd.toggle>{{this.session.user.email}} <span class="caret"></span></dd.toggle>
+        <dd.menu as |ddm|>
+          <ddm.item>{{#ddm.link-to "index"}}AF{{/ddm.link-to}}</ddm.item>
+          <div class="dropdown-divider"></div>
+          <ddm.item><a href="#" class="dropdown-item" {{on "click" this.logout}}>Logout</a></ddm.item>
+        </dd.menu>
+      </nav.dropdown>
       {{else}}
-        <nav.item>
-          {{#nav.link-to "login" class="btn btn-primary"}}Login{{/nav.link-to}}
-        </nav.item>
+      <nav.item>
+        {{#nav.link-to "login" class=""}}Login{{/nav.link-to}}
+      </nav.item>
+      <nav.item>
+        {{#nav.link-to "signup" class=""}}Register{{/nav.link-to}}
+      </nav.item>
       {{/if}}
     </navbar.nav>
   </navbar.content>

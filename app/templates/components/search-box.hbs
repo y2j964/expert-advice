@@ -1,0 +1,8 @@
+<BsForm role='search' class='w-50' @onSubmit={{action "submit"}} as |form|>
+  <form.group class='search-box'>
+    <label class="sr-only" for="searchInput">Search for post</label>
+    <input value={{this.title}} class="form-control search-box__input" placeholder='search' id='searchInput'
+      oninput={{action (mut this.Title)value="target.value"}} type="text">
+    <input class="sr-only" type="button" value="Search">
+  </form.group>
+</BsForm>

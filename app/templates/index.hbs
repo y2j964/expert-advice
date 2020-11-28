@@ -1,0 +1,16 @@
+<HeaderMain />
+<main>
+  <div class="d-flex justify-content-between">
+    <SearchBox />
+    <LinkTo @route="ask" class='btn btn-primary'>Ask a question</LinkTo>
+  </div>
+  <section class="questions">
+    <header class='view-count-wrapper'>
+      <h2 class='questions__title'>Questions</h2>
+      <div class='view-count'>
+        <span class='view-count__text'>views</span>
+      </div>
+    </header>
+    <QuestionList />
+  </section>
+</main>

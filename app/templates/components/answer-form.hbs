@@ -1,0 +1,9 @@
+<BsForm class='answer-form' @onSubmit={{action "submit"}} as |form|>
+  <form.group class='mb-5'>
+    <label class="control-label answer-form__label">Body</label>
+    <textarea value={{this.description}} class="form-control textarea--tall"
+      oninput={{action (mut this.description) value="target.value"}} type="text">
+      </textarea>
+  </form.group>
+  <form.submitButton>Post an answer</form.submitButton>
+</BsForm>

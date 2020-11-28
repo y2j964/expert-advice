@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+.h-screen {
+  height: 100vh;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+main {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.login-form__error {
+  color: #dc3545;
+}
+
+.max-w-screen-lg {
+  max-width: 1024px;
+}
+
+.textarea--tall {
+  // need to overwrite bootstrap
+  height: 14rem !important;
+}
+
+.main-padding {
+  padding-left: calc(#{$main-padding} * 2);
+  padding-right: $main-padding;
+}
+
+.question-page-title {
+  letter-spacing: 0.05rem;
+  margin-bottom: 0;
+  font-size: $font-base;
+}

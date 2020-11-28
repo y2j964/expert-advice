@@ -1,0 +1,8 @@
+.question-form {
+  width: 75%;
+
+  &__description {
+    // need to overwrite bootstrap
+    height: 14rem !important;
+  }
+}

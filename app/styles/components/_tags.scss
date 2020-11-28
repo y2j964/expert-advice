@@ -1,0 +1,11 @@
+.tags {
+  .btn {
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 0.5rem;
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+}

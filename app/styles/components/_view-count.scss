@@ -1,0 +1,28 @@
+.view-count-wrapper {
+  position: relative;
+}
+
+.view-count {
+  position: absolute;
+  width: calc(#{$main-padding} * 2);
+  top: 0;
+  left: calc(#{$main-padding} * -2);
+  text-align: center;
+
+  &--centered {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--line-height-adjusted {
+    margin-top: 6px;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: $font-sm;
+    letter-spacing: 0.05rem;
+  }
+}

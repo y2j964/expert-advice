@@ -1,20 +1,19 @@
-<BsNavbar @type="" @backgroundColor="light" @class="fixed-top shadow flex-md-nowrap" @collapsed={{this.collapsed}}
-  @onCollapse={{fn (mut this.collapsed) true}} @onExpand={{fn (mut this.collapsed) false}} as |navbar|>
+<BsNavbar @type="" @backgroundColor="light" @position='fixed-top' @class="nav flex-md-nowrap" @toggleBreakpoint='sm'
+  @collapsed={{this.collapsed}} @onCollapse={{fn (mut this.collapsed) true}} @onExpand={{fn (mut this.collapsed) false}}
+  as |navbar|>
   <div class="navbar-header">
-    {{navbar.toggle}}
     <LinkTo @route="index" class="navbar-brand">Expert Advice</LinkTo>
+    {{navbar.toggle}}
   </div>
   <navbar.content>
     <navbar.nav @class="ml-auto" as |nav|>
       {{#if this.session.user.email}}
-      <nav.dropdown as |dd|>
-        <dd.toggle>{{this.session.user.email}} <span class="caret"></span></dd.toggle>
-        <dd.menu as |ddm|>
-          <ddm.item>{{#ddm.link-to "index"}}AF{{/ddm.link-to}}</ddm.item>
-          <div class="dropdown-divider"></div>
-          <ddm.item><a href="#" class="dropdown-item" {{on "click" this.logout}}>Logout</a></ddm.item>
-        </dd.menu>
-      </nav.dropdown>
+      <nav.item>
+        {{#nav.link-to "login" class=""}}AF{{/nav.link-to}}
+      </nav.item>
+      <nav.item>
+        <button onclick={{this.logout}} class='nav-link nav-btn'>Logout</button>
+      </nav.item>
       {{else}}
       <nav.item>
         {{#nav.link-to "login" class=""}}Login{{/nav.link-to}}

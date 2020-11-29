@@ -1,0 +1,53 @@
+.navbar-light {
+  background-color: #e2e2e2;
+
+  .navbar-nav .nav-link {
+    color: #606060;
+  }
+}
+
+.navbar-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @include screen("sm") {
+    width: auto;
+  }
+}
+
+.nav-item {
+  position: relative;
+
+  @include screen("sm") {
+    &:nth-child(odd) {
+      padding-right: 0.25rem;
+
+      &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 8px;
+        right: 0;
+        width: 1px;
+        height: calc(100% - 16px);
+        background: #606060;
+      }
+    }
+
+    &:nth-child(even) {
+      padding-left: 0.25rem;
+    }
+  }
+}
+
+.nav-btn {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  text-align: left;
+
+  @include screen("sm") {
+    width: auto;
+  }
+}

@@ -5,3 +5,28 @@ $font-lg: 1.25rem;
 $font-2xl: 1.5rem;
 $font-3xl: 1.875rem;
 $main-padding: 3.5rem;
+
+@mixin screen($size) {
+  $xl: "(min-width: 1200px)";
+  $lg: "(min-width: 992px)";
+  $md: "(min-width: 768px)";
+  $sm: "(min-width: 576px)";
+
+  @if $size==xl {
+    @media only screen and #{$xl} {
+      @content;
+    }
+  } @else if $size==lg {
+    @media only screen and #{$lg} {
+      @content;
+    }
+  } @else if $size==md {
+    @media only screen and #{$md} {
+      @content;
+    }
+  } @else if $size==sm {
+    @media only screen and #{$sm} {
+      @content;
+    }
+  }
+}

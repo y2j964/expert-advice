@@ -1,18 +1,24 @@
-<BsForm class='question-form' @onSubmit={{action "submit"}} as |form|>
+<BsForm class='question-form' @onSubmit={{action "postQuestion"}} as |form|>
+  {{#if form.isSubmitted}}
+  <p>Question submitted!</p>
+  <LinkTo @route="index" class='btn btn-primary'>Go back to questions</LinkTo>
+  {{else}}
   <form.group class='mb-5'>
     <label class="control-label">Title</label>
-    <input value={{this.title}} class="form-control" oninput={{action (mut this.Title) value="target.value"}}
-      type="text">
+    <input value={{this.title}} oninput={{action (mut this.title) value="target.value"}} class="form-control"
+      type="text" required>
   </form.group>
   <form.group class='mb-5'>
     <label class="control-label">Description</label>
-    <textarea value={{this.description}} class="form-control textarea--tall"
-      oninput={{action (mut this.description) value="target.value"}} type="text">
+    <textarea value={{this.description}} oninput={{action (mut this.description) value="target.value"}}
+      class="form-control textarea--tall" type="text">
       </textarea>
   </form.group>
   <form.group class='mb-5'>
     <label class="control-label">Tags (separated by commas)</label>
-    <input value={{this.tags}} class="form-control" oninput={{action (mut this.tags) value="target.value"}} type="text">
+    <input value={{this.tags}} oninput={{action (mut this.tags) value="target.value"}} class="form-control" type="text"
+      required>
   </form.group>
-  <form.submitButton>Submit</form.submitButton>
+  <button class='btn btn-primary' type='submit' disabled={{form.isSubmitting}}>Post a question</button>
+  {{/if}}
 </BsForm>

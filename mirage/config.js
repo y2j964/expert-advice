@@ -99,4 +99,5 @@ export default function () {
     data: initialQuestions,
   }));
   this.get("/question/:id");
+  this.post("/questions");
 }

@@ -1,63 +1,6 @@
 import ENV from "ember-test-assignment/config/environment";
 import { Response } from "miragejs";
 
-const initialQuestions = [
-  {
-    type: "question",
-    id: "what-is-the-relative-major-of-b-minor",
-    attributes: {
-      title: "What is the relative major of B minor?",
-      description: "",
-      tags: ["music", "diatonic modes"],
-    },
-  },
-  {
-    type: "question",
-    id: "what-is-ingmar-bergmans-film-persona-about",
-    attributes: {
-      title: "What is Ingmar Bergman's film, Persona about?",
-      description: "",
-      tags: ["cinema", "sweden"],
-    },
-  },
-  {
-    type: "question",
-    id: "how-many-fingers-did-django-reinhardt-play-guitar-with",
-    attributes: {
-      title: "How many fingers did Django Reinhardt play guitar with?",
-      description: "",
-      tags: ["music", "jazz", "guitar"],
-    },
-  },
-  {
-    type: "question",
-    id: "how-do-you-make-gazpacho",
-    attributes: {
-      title: "How do you make gazpacho?",
-      description: "",
-      tags: ["cooking", "spanish"],
-    },
-  },
-  {
-    type: "question",
-    id: "why-does-the-world-exist",
-    attributes: {
-      title: "Why does the world exist?",
-      description: "",
-      tags: ["existentialism"],
-    },
-  },
-  {
-    type: "question",
-    id: "what-beach-boys-song-is-paul-mccartney-chewing-celery-on",
-    attributes: {
-      title: "What Beach Boys song features Paul McCartney chewing celery?",
-      description: "",
-      tags: ["music", "classic rock"],
-    },
-  },
-];
-
 export default function () {
   this.logging = true;
   this.timing = 0;
@@ -95,9 +38,8 @@ export default function () {
     return new Response(401);
   });
 
-  this.get("/questions", () => ({
-    data: initialQuestions,
-  }));
-  this.get("/question/:id");
+  this.get("/questions");
+  this.get("/questions/:id");
   this.post("/questions");
+  this.del("/questions/:id");
 }

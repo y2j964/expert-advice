@@ -11,7 +11,7 @@ Router.map(function () {
   this.route("signup");
   this.route("index", { path: "" }, function () {});
   this.route("ask");
-  this.route("question", { path: "question/:id" });
+  this.route("question", { path: "questions/:id" });
 });
 
 export default Router;

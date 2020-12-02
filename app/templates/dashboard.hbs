@@ -1,8 +1,7 @@
-<div class="row h-screen">
-  <main role="main" class="col-md-10">
-    Start building.
-
-    {{outlet}}
-  </main>
-</div>
-
+<HeaderMain />
+<main>
+  <section>
+    <h2>My Posts</h2>
+    <MyQuestionList @questions={{model}} />
+  </section>
+</main>

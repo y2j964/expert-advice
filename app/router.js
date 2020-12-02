@@ -12,6 +12,8 @@ Router.map(function () {
   this.route("index", { path: "" }, function () {});
   this.route("ask");
   this.route("question", { path: "questions/:id" });
+  this.route("dashboard");
+  this.route("edit", { path: "edit/:id" });
 });
 
 export default Router;

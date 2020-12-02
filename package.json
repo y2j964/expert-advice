@@ -61,5 +61,8 @@
   },
   "engines": {
     "node": "12.x"
+  },
+  "dependencies": {
+    "slugify": "^1.4.6"
   }
 }

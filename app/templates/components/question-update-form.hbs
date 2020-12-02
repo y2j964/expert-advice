@@ -1,0 +1,24 @@
+<BsForm class='question-form' @onSubmit={{action "patchQuestion"}} as |form|>
+  {{#if form.isSubmitted}}
+  <p>Question submitted!</p>
+  <LinkTo @route="dashboard" class='btn btn-primary'>Go back to my questions</LinkTo>
+  {{else}}
+  <form.group class='mb-5'>
+    <label class="control-label">Title</label>
+    <input value={{this.title}} oninput={{action (mut this.title) value="target.value"}} class="form-control"
+      type="text" required>
+  </form.group>
+  <form.group class='mb-5'>
+    <label class="control-label">Description</label>
+    <textarea value={{this.description}} oninput={{action (mut this.description) value="target.value"}}
+      class="form-control textarea--tall" type="text">
+      </textarea>
+  </form.group>
+  <form.group class='mb-5'>
+    <label class="control-label">Tags (separated by commas)</label>
+    <input value={{this.tags}} oninput={{action (mut this.tags) value="target.value"}} class="form-control" type="text"
+      required>
+  </form.group>
+  <button class='btn btn-primary' type='submit' disabled={{form.isSubmitting}}>Post a question</button>
+  {{/if}}
+</BsForm>

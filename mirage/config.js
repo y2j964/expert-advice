@@ -42,4 +42,5 @@ export default function () {
   this.get("/questions/:id");
   this.post("/questions");
   this.del("/questions/:id");
+  this.patch("/questions/:id");
 }

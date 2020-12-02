@@ -1,17 +1,5 @@
 <ol class='question-list'>
   {{#each @questions as |question|}}
-  <li class='question-list__item'>
-    <div class='view-count-wrapper'>
-      <LinkTo @route="question" @model={{question.id}}>{{question.title}}</LinkTo>
-      <div class='view-count'>
-        <span class='view-count__text'>1k</span>
-      </div>
-    </div>
-    <div class="tags">
-      {{#each question.tags as |tag|}}
-      <button class='btn btn-primary btn-sm'>{{tag}}</button>
-      {{/each}}
-    </div>
-  </li>
+  <QuestionCard @title={{question.title}} @id={{question.id}} @tags={{question.tags}} />
   {{/each}}
 </ol>

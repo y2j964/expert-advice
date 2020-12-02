@@ -1,0 +1,13 @@
+<li class='question-list__item'>
+  <div class='view-count-wrapper'>
+    <LinkTo @route="question" @model={{id}}>{{title}}</LinkTo>
+    <div class='view-count'>
+      <span class='view-count__text'>1k</span>
+    </div>
+  </div>
+  <div class="tags">
+    {{#each tags as |tag|}}
+    <button class='btn btn-primary btn-sm'>{{tag}}</button>
+    {{/each}}
+  </div>
+</li>

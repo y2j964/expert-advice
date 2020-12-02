@@ -5,6 +5,7 @@ import { inject as service } from "@ember/service";
 
 export default class QuestionForm extends Component {
   @service store;
+  @service session;
 
   @tracked title;
   @tracked description;
@@ -16,6 +17,7 @@ export default class QuestionForm extends Component {
       title: this.title,
       description: this.description,
       tags: this.tags.split(", "),
+      author: this.session.user.email,
     });
     question.save();
     this.title = "";

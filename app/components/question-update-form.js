@@ -16,11 +16,11 @@ export default class QuestionForm extends Component {
   patchQuestion() {
     console.log(slugify(this.title));
     this.store
-      .findRecord("question", this.router.currentRoute.params.id)
-      .then((question) => {
-        console.log(this.title);
+      .query("question", { filter: { slug: this.args.slug } })
+      .then((questions) => {
+        const question = questions.get("firstObject");
         question.title = this.title;
-        question.id = slugify(this.title);
+        question.slug = slugify(this.title);
         question.description = this.description;
         question.tags = this.tags.split(", ");
         question.save();

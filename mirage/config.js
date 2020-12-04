@@ -1,6 +1,22 @@
 import ENV from "ember-test-assignment/config/environment";
 import { Response } from "miragejs";
 
+// nicked from https://embermap.com/topics/mirage-tips-and-tricks/using-higher-order-functions-to-generate-route-handlers
+function filterable(resourceName, attrs) {
+  return (schema, request) => {
+    let filters = attrs.reduce((hash, attr) => {
+      let val = request.queryParams[`filter[${attr}]`];
+      if (val) {
+        hash[attr] = val;
+      }
+
+      return hash;
+    }, {});
+
+    return schema[resourceName].where(filters);
+  };
+}
+
 export default function () {
   this.logging = true;
   this.timing = 0;
@@ -38,9 +54,9 @@ export default function () {
     return new Response(401);
   });
 
-  this.get("/questions");
-  this.get("/questions/:id");
+  this.get("/questions", filterable("questions", ["slug"]));
+  this.get("/questions/:slug");
   this.post("/questions");
   this.del("/questions/:id");
-  this.patch("/questions/:id");
+  this.patch("/questions/:slug");
 }

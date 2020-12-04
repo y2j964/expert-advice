@@ -1,5 +1,5 @@
 <ol class='question-list'>
   {{#each @questions as |question|}}
-  <QuestionCard @title={{question.title}} @id={{question.id}} @tags={{question.tags}} />
+  <QuestionCard @title={{question.title}} @slug={{question.slug}} @id={{question.id}} @tags={{question.tags}} />
   {{/each}}
 </ol>

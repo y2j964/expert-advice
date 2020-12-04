@@ -1,7 +1,7 @@
 <li class='question-list__item'>
-  <LinkTo @route="question" @model={{@id}}>{{@title}}</LinkTo>
+  <LinkTo @route="question" @model={{@slug}}>{{@title}}</LinkTo>
   <div class="tags">
-    <LinkTo @route='edit' @model={{@id}} class='btn btn-sm'>edit</LinkTo>
+    <LinkTo @route='edit' @model={{@slug}} class='btn btn-sm'>edit</LinkTo>
     <button class='btn btn-sm' onclick={{action "deleteQuestion" @id}}>delete</button>
   </div>
 </li>
